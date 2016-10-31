@@ -7,12 +7,29 @@
 //
 
 import UIKit
+import Alamofire
 
 class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        
+        Alamofire.request(Router.authenticate).responseJSON { response in
+            switch response.result {
+            case .success(let value):
+                print(value)
+            case .failure(let error):
+                print(error)
+                
+            }
+        }
+        
+        Alamofire.request(Router.authenticate).response { response in
+            
+            print(response)
+        }
+        
     }
 
     override func didReceiveMemoryWarning() {

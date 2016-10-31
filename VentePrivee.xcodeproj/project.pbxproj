@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4C2F2BDC0CC30DEBA063AC39 /* Pods_VentePrivee.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7A64E58EFCC51252BAAF98BE /* Pods_VentePrivee.framework */; };
+		71CD90CA1DC7824800E4B9CA /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71CD90C91DC7824800E4B9CA /* Router.swift */; };
 		71DEA19E1DC781A70086F00E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71DEA19D1DC781A70086F00E /* AppDelegate.swift */; };
 		71DEA1A01DC781A70086F00E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71DEA19F1DC781A70086F00E /* ViewController.swift */; };
 		71DEA1A31DC781A70086F00E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 71DEA1A11DC781A70086F00E /* Main.storyboard */; };
@@ -15,6 +17,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		58104E69A29C5EB8A51253DC /* Pods-VentePrivee.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VentePrivee.release.xcconfig"; path = "Pods/Target Support Files/Pods-VentePrivee/Pods-VentePrivee.release.xcconfig"; sourceTree = "<group>"; };
+		71CD90C91DC7824800E4B9CA /* Router.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
 		71DEA19A1DC781A70086F00E /* VentePrivee.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VentePrivee.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		71DEA19D1DC781A70086F00E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		71DEA19F1DC781A70086F00E /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -22,6 +26,8 @@
 		71DEA1A41DC781A70086F00E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		71DEA1A71DC781A70086F00E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		71DEA1A91DC781A70086F00E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7A64E58EFCC51252BAAF98BE /* Pods_VentePrivee.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_VentePrivee.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		CE8F70FA185D2E2BFF1C6628 /* Pods-VentePrivee.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VentePrivee.debug.xcconfig"; path = "Pods/Target Support Files/Pods-VentePrivee/Pods-VentePrivee.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -29,17 +35,28 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4C2F2BDC0CC30DEBA063AC39 /* Pods_VentePrivee.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		604C66EA74028924FB666839 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				7A64E58EFCC51252BAAF98BE /* Pods_VentePrivee.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		71DEA1911DC781A70086F00E = {
 			isa = PBXGroup;
 			children = (
 				71DEA19C1DC781A70086F00E /* VentePrivee */,
 				71DEA19B1DC781A70086F00E /* Products */,
+				CE99B6C77D7A37B68CFB4AAE /* Pods */,
+				604C66EA74028924FB666839 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -55,6 +72,7 @@
 			isa = PBXGroup;
 			children = (
 				71DEA19D1DC781A70086F00E /* AppDelegate.swift */,
+				71CD90C91DC7824800E4B9CA /* Router.swift */,
 				71DEA19F1DC781A70086F00E /* ViewController.swift */,
 				71DEA1A11DC781A70086F00E /* Main.storyboard */,
 				71DEA1A41DC781A70086F00E /* Assets.xcassets */,
@@ -64,6 +82,15 @@
 			path = VentePrivee;
 			sourceTree = "<group>";
 		};
+		CE99B6C77D7A37B68CFB4AAE /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				CE8F70FA185D2E2BFF1C6628 /* Pods-VentePrivee.debug.xcconfig */,
+				58104E69A29C5EB8A51253DC /* Pods-VentePrivee.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -71,9 +98,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 71DEA1AC1DC781A70086F00E /* Build configuration list for PBXNativeTarget "VentePrivee" */;
 			buildPhases = (
+				4F701C67D0EC95EF9D061695 /* [CP] Check Pods Manifest.lock */,
 				71DEA1961DC781A70086F00E /* Sources */,
 				71DEA1971DC781A70086F00E /* Frameworks */,
 				71DEA1981DC781A70086F00E /* Resources */,
+				6E8CAE94D9D5F8D5B18F9C9A /* [CP] Embed Pods Frameworks */,
+				3F2E0A1B408AB848AE373191 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -132,12 +162,61 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		3F2E0A1B408AB848AE373191 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-VentePrivee/Pods-VentePrivee-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		4F701C67D0EC95EF9D061695 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		6E8CAE94D9D5F8D5B18F9C9A /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-VentePrivee/Pods-VentePrivee-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		71DEA1961DC781A70086F00E /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				71DEA1A01DC781A70086F00E /* ViewController.swift in Sources */,
+				71CD90CA1DC7824800E4B9CA /* Router.swift in Sources */,
 				71DEA19E1DC781A70086F00E /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -257,6 +336,7 @@
 		};
 		71DEA1AD1DC781A70086F00E /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = CE8F70FA185D2E2BFF1C6628 /* Pods-VentePrivee.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = AGP77XRAQE;
@@ -270,6 +350,7 @@
 		};
 		71DEA1AE1DC781A70086F00E /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 58104E69A29C5EB8A51253DC /* Pods-VentePrivee.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = AGP77XRAQE;
@@ -300,6 +381,7 @@
 				71DEA1AE1DC781A70086F00E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
