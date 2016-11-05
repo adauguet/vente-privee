@@ -8,16 +8,24 @@
 
 /* Begin PBXBuildFile section */
 		4C2F2BDC0CC30DEBA063AC39 /* Pods_VentePrivee.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7A64E58EFCC51252BAAF98BE /* Pods_VentePrivee.framework */; };
+		71295B631DCBA56100E7D54C /* Universe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71295B621DCBA56100E7D54C /* Universe.swift */; };
+		713752FD1DCC959A00396047 /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = 713752FC1DCC959A00396047 /* Product.swift */; };
+		713752FF1DCC95AD00396047 /* Family.swift in Sources */ = {isa = PBXBuildFile; fileRef = 713752FE1DCC95AD00396047 /* Family.swift */; };
 		71CD90CA1DC7824800E4B9CA /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71CD90C91DC7824800E4B9CA /* Router.swift */; };
 		71DEA19E1DC781A70086F00E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71DEA19D1DC781A70086F00E /* AppDelegate.swift */; };
 		71DEA1A01DC781A70086F00E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71DEA19F1DC781A70086F00E /* ViewController.swift */; };
 		71DEA1A31DC781A70086F00E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 71DEA1A11DC781A70086F00E /* Main.storyboard */; };
 		71DEA1A51DC781A70086F00E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 71DEA1A41DC781A70086F00E /* Assets.xcassets */; };
 		71DEA1A81DC781A70086F00E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 71DEA1A61DC781A70086F00E /* LaunchScreen.storyboard */; };
+		71E23E1F1DC9463400B38674 /* Operation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71E23E1E1DC9463400B38674 /* Operation.swift */; };
+		71E23E211DC947A700B38674 /* WebService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71E23E201DC947A700B38674 /* WebService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		58104E69A29C5EB8A51253DC /* Pods-VentePrivee.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VentePrivee.release.xcconfig"; path = "Pods/Target Support Files/Pods-VentePrivee/Pods-VentePrivee.release.xcconfig"; sourceTree = "<group>"; };
+		71295B621DCBA56100E7D54C /* Universe.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Universe.swift; sourceTree = "<group>"; };
+		713752FC1DCC959A00396047 /* Product.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Product.swift; sourceTree = "<group>"; };
+		713752FE1DCC95AD00396047 /* Family.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Family.swift; sourceTree = "<group>"; };
 		71CD90C91DC7824800E4B9CA /* Router.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
 		71DEA19A1DC781A70086F00E /* VentePrivee.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VentePrivee.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		71DEA19D1DC781A70086F00E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -26,6 +34,8 @@
 		71DEA1A41DC781A70086F00E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		71DEA1A71DC781A70086F00E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		71DEA1A91DC781A70086F00E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		71E23E1E1DC9463400B38674 /* Operation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Operation.swift; sourceTree = "<group>"; };
+		71E23E201DC947A700B38674 /* WebService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebService.swift; sourceTree = "<group>"; };
 		7A64E58EFCC51252BAAF98BE /* Pods_VentePrivee.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_VentePrivee.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE8F70FA185D2E2BFF1C6628 /* Pods-VentePrivee.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VentePrivee.debug.xcconfig"; path = "Pods/Target Support Files/Pods-VentePrivee/Pods-VentePrivee.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -48,6 +58,35 @@
 				7A64E58EFCC51252BAAF98BE /* Pods_VentePrivee.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		713753001DCC95CE00396047 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				71E23E1E1DC9463400B38674 /* Operation.swift */,
+				71295B621DCBA56100E7D54C /* Universe.swift */,
+				713752FE1DCC95AD00396047 /* Family.swift */,
+				713752FC1DCC959A00396047 /* Product.swift */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		713753011DCC95DE00396047 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				71DEA19F1DC781A70086F00E /* ViewController.swift */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
+		713753021DCC95EF00396047 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				71DEA1A11DC781A70086F00E /* Main.storyboard */,
+				71DEA1A61DC781A70086F00E /* LaunchScreen.storyboard */,
+				71DEA1A41DC781A70086F00E /* Assets.xcassets */,
+			);
+			name = Views;
 			sourceTree = "<group>";
 		};
 		71DEA1911DC781A70086F00E = {
@@ -73,10 +112,10 @@
 			children = (
 				71DEA19D1DC781A70086F00E /* AppDelegate.swift */,
 				71CD90C91DC7824800E4B9CA /* Router.swift */,
-				71DEA19F1DC781A70086F00E /* ViewController.swift */,
-				71DEA1A11DC781A70086F00E /* Main.storyboard */,
-				71DEA1A41DC781A70086F00E /* Assets.xcassets */,
-				71DEA1A61DC781A70086F00E /* LaunchScreen.storyboard */,
+				71E23E201DC947A700B38674 /* WebService.swift */,
+				713753001DCC95CE00396047 /* Model */,
+				713753021DCC95EF00396047 /* Views */,
+				713753011DCC95DE00396047 /* Controllers */,
 				71DEA1A91DC781A70086F00E /* Info.plist */,
 			);
 			path = VentePrivee;
@@ -215,9 +254,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				71295B631DCBA56100E7D54C /* Universe.swift in Sources */,
+				713752FF1DCC95AD00396047 /* Family.swift in Sources */,
 				71DEA1A01DC781A70086F00E /* ViewController.swift in Sources */,
 				71CD90CA1DC7824800E4B9CA /* Router.swift in Sources */,
 				71DEA19E1DC781A70086F00E /* AppDelegate.swift in Sources */,
+				71E23E211DC947A700B38674 /* WebService.swift in Sources */,
+				71E23E1F1DC9463400B38674 /* Operation.swift in Sources */,
+				713752FD1DCC959A00396047 /* Product.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -261,6 +305,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_SUSPICIOUS_MOVES = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -310,6 +355,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_SUSPICIOUS_MOVES = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -338,6 +384,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = CE8F70FA185D2E2BFF1C6628 /* Pods-VentePrivee.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = AGP77XRAQE;
 				INFOPLIST_FILE = VentePrivee/Info.plist;
@@ -352,6 +399,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 58104E69A29C5EB8A51253DC /* Pods-VentePrivee.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = AGP77XRAQE;
 				INFOPLIST_FILE = VentePrivee/Info.plist;
