@@ -44,11 +44,9 @@ class ViewController: UIViewController {
                                             if let json = value as? JSON, let datas = json["datas"] as? JSON, let productFamilies = datas["productFamilies"] as? [JSON] {
                                                 let families = productFamilies.flatMap { Family(json: $0) }
                                                 
-                                                if let family = families.first {
-                                                    if let product = family.products.first {
-                                                        let request = Router.add(family: family, product: product, quantity: 1)
-                                                        
-                                                        Alamofire.request(request).validate().responseJSON { response in
+                                                for family in families {
+                                                    for product in family.products {
+                                                        Alamofire.request(Router.add(family: family, product: product, quantity: 1)).validate().responseJSON { response in
                                                             switch response.result {
                                                             case .success(let value):
                                                                 print(value)
