@@ -15,6 +15,23 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
+        WebService().load(route: Router.authenticate) {
+            
+            let operation = Operation(id: 60443, brand: "Calvin Klein")
+            
+            WebService().load(resource: Universe.root(operation: operation)) { universe in
+                if let universe = universe {
+                    print(universe)
+                }
+            }
+            
+            WebService().load(resource: Operation.all) { operations in
+                if let operations = operations {
+                    print(operations)
+                }
+            }
+        }
+        
         Alamofire.request(Router.authenticate).responseData { response in
             switch response.result {
             case .success:
@@ -33,7 +50,7 @@ class ViewController: UIViewController {
                         
                         let operation = Operation(id: 60443, brand: "Calvin Klein")
                         
-                        Alamofire.request(Router.universes(operation: operation)).validate().responseJSON { response in
+                        Alamofire.request(Router.universe(operation: operation)).validate().responseJSON { response in
                             switch response.result {
                             case .success(let value):
                                 if let json = value as? JSON, let datas = json["datas"] as? JSON, let universe = Universe(json: datas) {

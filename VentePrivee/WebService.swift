@@ -7,12 +7,33 @@
 //
 
 import Foundation
+import Alamofire
 
 typealias JSON = [String : Any]
 
-class WebService {
+final class WebService {
     
-    func fetchOperations() {
+    func load(route: URLRequestConvertible, completion: @escaping () -> ()) {
+        Alamofire.request(route).validate().responseData { response in
+            switch response.result {
+            case .success:
+                completion()
+            case .failure(let error):
+                print(error)
+            }
+        }
+    }
         
+    func load<A>(resource: Resource<A>, completion: @escaping (A?) -> ()) {
+        Alamofire.request(resource.url).validate().responseJSON { response in
+            switch response.result {
+            case .success(let value as JSON):
+                completion(resource.parse(value))
+            case .failure(let error):
+                print(error)
+            default:
+                print(response)
+            }
+        }
     }
 }

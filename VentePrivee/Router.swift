@@ -14,7 +14,7 @@ enum Router: URLRequestConvertible {
     case authenticate
     case operations
     case enter(operation: Operation)
-    case universes(operation: Operation)
+    case universe(operation: Operation)
     case salespaceContent(universe: Universe)
     case add(family: Family, product: Product, quantity: Int)
     
@@ -30,7 +30,7 @@ enum Router: URLRequestConvertible {
                 return "http://fr.vente-privee.com/homev6/fr/Default/GetClientData"
             case .enter(let operation):
                 return baseURL + "/ns-sd/frontservices/2.0/operation/enteroperation/\(operation.id)"
-            case .universes(let operation):
+            case .universe(let operation):
                 return baseURL + "/ns-sc/frontservices/2.0/salespace/getuniverses/10/\(operation.id)/1"
             case .salespaceContent(let universe):
                 return baseURL + "/ns-sd/frontservices/2.0/salespace/getsalespacecontentbyuniverse/10/\(universe.id)/false"
@@ -98,7 +98,7 @@ enum Router: URLRequestConvertible {
             switch self {
             case .authenticate, .add:
                 return .post
-            case .operations, .enter, .universes, .salespaceContent:
+            case .operations, .enter, .universe, .salespaceContent:
                 return .get
             }
         }()

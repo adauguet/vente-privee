@@ -12,15 +12,27 @@ struct Universe {
     
     let id: Int
     let name: String
-//    let subUniverses: [Universe]
+}
+
+extension Universe {
     
     init?(json: JSON) {
         guard
             let id = json["universeId"] as? Int,
-            let name = json["name"] as? String
-            /* let subUniverses = json["subUniverses"] as? [JSON]*/ else { return nil }
+            let name = json["name"] as? String else { return nil }
         self.id = id
         self.name = name
-//        self.subUniverses = subUniverses.flatMap { Universe(json: $0) }
+    }
+}
+
+extension Universe {
+    
+    static func root(operation: Operation) -> Resource<Universe> {
+        return Resource<Universe>(url: Router.universe(operation: operation)) { json -> Universe? in
+            guard let datas = json["datas"] as? JSON, let universe = Universe(json: datas) else {
+                return nil
+            }
+            return universe
+        }
     }
 }

@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		4C2F2BDC0CC30DEBA063AC39 /* Pods_VentePrivee.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7A64E58EFCC51252BAAF98BE /* Pods_VentePrivee.framework */; };
+		54EA842F1DD0EC3B005A0EDD /* Resource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54EA842E1DD0EC3B005A0EDD /* Resource.swift */; };
 		71295B631DCBA56100E7D54C /* Universe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71295B621DCBA56100E7D54C /* Universe.swift */; };
 		713752FD1DCC959A00396047 /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = 713752FC1DCC959A00396047 /* Product.swift */; };
 		713752FF1DCC95AD00396047 /* Family.swift in Sources */ = {isa = PBXBuildFile; fileRef = 713752FE1DCC95AD00396047 /* Family.swift */; };
@@ -22,6 +23,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		54EA842E1DD0EC3B005A0EDD /* Resource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Resource.swift; sourceTree = "<group>"; };
 		58104E69A29C5EB8A51253DC /* Pods-VentePrivee.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VentePrivee.release.xcconfig"; path = "Pods/Target Support Files/Pods-VentePrivee/Pods-VentePrivee.release.xcconfig"; sourceTree = "<group>"; };
 		71295B621DCBA56100E7D54C /* Universe.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Universe.swift; sourceTree = "<group>"; };
 		713752FC1DCC959A00396047 /* Product.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Product.swift; sourceTree = "<group>"; };
@@ -112,6 +114,7 @@
 			children = (
 				71DEA19D1DC781A70086F00E /* AppDelegate.swift */,
 				71CD90C91DC7824800E4B9CA /* Router.swift */,
+				54EA842E1DD0EC3B005A0EDD /* Resource.swift */,
 				71E23E201DC947A700B38674 /* WebService.swift */,
 				713753001DCC95CE00396047 /* Model */,
 				713753021DCC95EF00396047 /* Views */,
@@ -160,7 +163,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0800;
-				LastUpgradeCheck = 0800;
+				LastUpgradeCheck = 0810;
 				ORGANIZATIONNAME = "Antoine DAUGUET";
 				TargetAttributes = {
 					71DEA1991DC781A70086F00E = {
@@ -254,6 +257,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				54EA842F1DD0EC3B005A0EDD /* Resource.swift in Sources */,
 				71295B631DCBA56100E7D54C /* Universe.swift in Sources */,
 				713752FF1DCC95AD00396047 /* Family.swift in Sources */,
 				71DEA1A01DC781A70086F00E /* ViewController.swift in Sources */,

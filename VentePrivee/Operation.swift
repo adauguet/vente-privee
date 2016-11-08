@@ -25,3 +25,18 @@ extension Operation {
         self.brand = brand
     }
 }
+
+extension Operation {
+    
+    static let all = Resource<[Operation]>(url: Router.operations, parse: { json in
+        if let homeParts = json["HomeParts"] as? [JSON] {
+            var operations = [Operation]()
+            for homePart in homeParts {
+                if let banners = homePart["Banners"] as? [JSON] {
+                    operations += banners.flatMap { return Operation(json: $0) }
+                }
+            }
+            return operations
+        } else { return nil }
+    })
+}

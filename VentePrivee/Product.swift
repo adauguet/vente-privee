@@ -9,9 +9,13 @@
 import Foundation
 
 struct Product {
+    
     var id: Int
     var name: String
     var description: String
+}
+
+extension Product {
     
     init?(json: JSON) {
         guard
@@ -21,5 +25,14 @@ struct Product {
         self.id = id
         self.name = name
         self.description = description
+    }
+}
+
+extension Product {
+    
+    static func all(universe: Universe) -> Resource<[Product]> {
+        return Resource<[Product]>(url: Router.salespaceContent(universe: universe)) { json in
+            return []
+        }
     }
 }
