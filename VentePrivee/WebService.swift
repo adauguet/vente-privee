@@ -13,7 +13,10 @@ typealias JSON = [String : Any]
 
 final class WebService {
     
-    func load(route: URLRequestConvertible, completion: @escaping () -> ()) {
+    static let shared = WebService()
+    private init() {}
+    
+    func send(route: URLRequestConvertible, completion: @escaping () -> ()) {
         Alamofire.request(route).validate().responseData { response in
             switch response.result {
             case .success:

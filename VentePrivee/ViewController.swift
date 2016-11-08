@@ -10,87 +10,67 @@ import UIKit
 import Alamofire
 
 class ViewController: UIViewController {
+
+    var result = (0, 0)
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
-        WebService().load(route: Router.authenticate) {
-            
-            let operation = Operation(id: 60443, brand: "Calvin Klein")
-            
-            WebService().load(resource: Universe.root(operation: operation)) { universe in
-                if let universe = universe {
-                    print(universe)
-                }
-            }
-            
-            WebService().load(resource: Operation.all) { operations in
-                if let operations = operations {
-                    print(operations)
-                }
-            }
-        }
+        let dateComponents = DateComponents(year: 2016, month: 11, day: 8, hour: 18, minute: 18, second: 0)
+        let operation = Operation(id: 60443, brand: "Calvin Klein")
         
-        Alamofire.request(Router.authenticate).responseData { response in
-            switch response.result {
-            case .success:
-                
-                Alamofire.request(Router.operations).responseJSON { response in
-                    switch response.result {
-                    case .success(let value):
-                        var operations: [Operation] = []
-                        if let json = value as? JSON, let homeParts = json["HomeParts"] as? [JSON] {
-                            for homePart in homeParts {
-                                if let banners = homePart["Banners"] as? [JSON] {
-                                    operations += banners.flatMap { return Operation(json: $0) }
-                                }
-                            }
-                        }
-                        
-                        let operation = Operation(id: 60443, brand: "Calvin Klein")
-                        
-                        Alamofire.request(Router.universe(operation: operation)).validate().responseJSON { response in
-                            switch response.result {
-                            case .success(let value):
-                                if let json = value as? JSON, let datas = json["datas"] as? JSON, let universe = Universe(json: datas) {
-                                    
-                                    Alamofire.request(Router.salespaceContent(universe: universe)).validate().responseJSON { response in
-                                        switch response.result {
-                                        case .success(let value):
-                                            if let json = value as? JSON, let datas = json["datas"] as? JSON, let productFamilies = datas["productFamilies"] as? [JSON] {
-                                                let families = productFamilies.flatMap { Family(json: $0) }
-                                                
-                                                for family in families {
-                                                    for product in family.products {
-                                                        Alamofire.request(Router.add(family: family, product: product, quantity: 1)).validate().responseJSON { response in
-                                                            switch response.result {
-                                                            case .success(let value):
-                                                                print(value)
-                                                            case .failure(let error):
-                                                                print(error)
-                                                            }
-                                                        }
-                                                    }
-                                                }
-                                            }
-                                        case .failure(let error):
-                                            print(error)
-                                        }
-                                    }
-                                }
-                            case .failure(let error):
-                                print(error)
-                            }
-                        }
-                    case .failure(let error):
-                        print(error)
-                    }
-                }
-            case .failure(let error):
-                print(error)
-            }
+        WebService.shared.send(route: Router.authenticate) { [unowned self] in
+            
+//            if let date = Calendar.current.date(from: dateComponents) {
+//                let target = Target(operation: operation, date: date)
+//                self.addAll(target: target)
+//            }
+            
+//            WebService.shared.load(resource: Operation.all) { operations in
+//                if let operations = operations {
+//                    for operation in operations {
+//                        print(operation.id, operation.brand)
+//                    }
+//                }
+//            }
+            
+            self.addAll(operation: operation)
         }
     }
     
+    func addAll(operation: Operation) {
+        WebService.shared.load(resource: Universe.root(operation: operation)) { universe in
+            if let universe = universe {
+                WebService.shared.load(resource: Family.all(universe: universe)) { [unowned self] families in
+                    if let families = families {
+                        let group = DispatchGroup()
+                        self.result = (0, 0)
+
+                        for family in families {
+                            for product in family.products {
+                                self.result.1 += 1
+                                group.enter()
+                                WebService.shared.send(route: Router.add(family: family, product: product, quantity: 1)) { [unowned self] in
+                                    self.result.0 += 1
+                                    group.leave()
+                                }
+                            }
+                        }
+                        
+                        group.notify(queue: DispatchQueue.main) {
+                            print("\(self.result.0) / \(self.result.1) successful requests")
+                        }
+                    } else { print("Empty families") }
+                }
+            } else { print("Empty universe") }
+        }
+    }
+    
+    func addAll(target: Target) {
+        let timer = Timer(fire: target.date, interval: 0, repeats: false) { _ in
+            self.addAll(operation: target.operation)
+        }
+        RunLoop.current.add(timer, forMode: .defaultRunLoopMode)
+    }
 }

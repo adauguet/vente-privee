@@ -20,3 +20,15 @@ struct Family {
         self.products = jsonProducts.flatMap { Product(json: $0) }
     }
 }
+
+extension Family {
+
+    static func all(universe: Universe) -> Resource<[Family]> {
+        return Resource<[Family]>(url: Router.salespaceContent(universe: universe)) { json in
+            guard
+                let datas = json["datas"] as? JSON,
+                let productFamilies = datas["productFamilies"] as? [JSON] else { return [] }
+            return productFamilies.flatMap { Family(json: $0) }
+        }
+    }
+}

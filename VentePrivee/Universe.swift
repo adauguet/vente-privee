@@ -29,9 +29,9 @@ extension Universe {
     
     static func root(operation: Operation) -> Resource<Universe> {
         return Resource<Universe>(url: Router.universe(operation: operation)) { json -> Universe? in
-            guard let datas = json["datas"] as? JSON, let universe = Universe(json: datas) else {
-                return nil
-            }
+            guard
+                let datas = json["datas"] as? JSON,
+                let universe = Universe(json: datas) else { return nil }
             return universe
         }
     }

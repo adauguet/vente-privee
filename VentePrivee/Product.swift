@@ -27,12 +27,3 @@ extension Product {
         self.description = description
     }
 }
-
-extension Product {
-    
-    static func all(universe: Universe) -> Resource<[Product]> {
-        return Resource<[Product]>(url: Router.salespaceContent(universe: universe)) { json in
-            return []
-        }
-    }
-}
