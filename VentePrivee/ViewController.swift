@@ -10,66 +10,75 @@ import UIKit
 import Alamofire
 
 class ViewController: UIViewController {
-
+    
+    let dateComponents = DateComponents(year: 2016, month: 11, day: 8, hour: 18, minute: 18, second: 0)
+    let operation = Operation(id: 60443, brand: "Calvin Klein")
+    
     var result = (0, 0)
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
         
-        let dateComponents = DateComponents(year: 2016, month: 11, day: 8, hour: 18, minute: 18, second: 0)
-        let operation = Operation(id: 60443, brand: "Calvin Klein")
-        
-        WebService.shared.send(route: Router.authenticate) { [unowned self] in
+        WebService.shared.send(route: Router.authenticate, completion: { [unowned self] in
             
-//            if let date = Calendar.current.date(from: dateComponents) {
-//                let target = Target(operation: operation, date: date)
-//                self.addAll(target: target)
-//            }
+            if let date = Calendar.current.date(from: self.dateComponents) {
+                self.target(operation: self.operation, date: date)
+            } else {
+                self.add(operation: self.operation)
+            }
             
-//            WebService.shared.load(resource: Operation.all) { operations in
-//                if let operations = operations {
-//                    for operation in operations {
-//                        print(operation.id, operation.brand)
-//                    }
-//                }
-//            }
-            
-            self.addAll(operation: operation)
-        }
+        }) { error in print("Authentication error!", error) }
     }
     
-    func addAll(operation: Operation) {
-        WebService.shared.load(resource: Universe.root(operation: operation)) { universe in
-            if let universe = universe {
-                WebService.shared.load(resource: Family.all(universe: universe)) { [unowned self] families in
-                    if let families = families {
-                        let group = DispatchGroup()
-                        self.result = (0, 0)
-
-                        for family in families {
-                            for product in family.products {
-                                self.result.1 += 1
-                                group.enter()
-                                WebService.shared.send(route: Router.add(family: family, product: product, quantity: 1)) { [unowned self] in
-                                    self.result.0 += 1
-                                    group.leave()
-                                }
-                            }
-                        }
-                        
-                        group.notify(queue: DispatchQueue.main) {
-                            print("\(self.result.0) / \(self.result.1) successful requests")
-                        }
-                    } else { print("Empty families") }
+    func loadOperations() {
+        WebService.shared.load(resource: Operation.all, completion: { operations in
+            if let operations = operations {
+                for operation in operations {
+                    print(operation.id, operation.brand)
                 }
-            } else { print("Empty universe") }
-        }
+            }
+        }) { error in print(error) }
     }
     
-    func addAll(target: Target) {
-        let timer = Timer(fire: target.date, interval: 0, repeats: false) { _ in
-            self.addAll(operation: target.operation)
+    func add(operation: Operation) {
+        
+        WebService.shared.load(resource: Universe.root(operation: operation), completion: { universe in
+            
+            guard let universe = universe else { return print("Empty universe") }
+            
+            WebService.shared.load(resource: Family.all(universe: universe), completion: { [unowned self] families in
+                
+                guard let families = families else { return print("Empty families") }
+                
+                let group = DispatchGroup()
+                self.result = (0, 0)
+                
+                for family in families {
+                    for product in family.products {
+                        self.result.1 += 1
+                        group.enter()
+                        WebService.shared.send(route: Router.add(family: family, product: product, quantity: 1), completion: { [unowned self] in
+                            self.result.0 += 1
+                            group.leave()
+                        }) { error in
+                            print(error)
+                            group.leave()
+                        }
+                    }
+                }
+                
+                group.notify(queue: .main) {
+                    print("\(self.result.0) / \(self.result.1) successful requests")
+                }
+                
+            }) { error in print(error) }
+            
+        }) { error in print(error) }
+    }
+    
+    func target(operation: Operation, date: Date) {
+        let timer = Timer(fire: date, interval: 0, repeats: false) { _ in
+            self.add(operation: operation)
         }
         RunLoop.current.add(timer, forMode: .defaultRunLoopMode)
     }

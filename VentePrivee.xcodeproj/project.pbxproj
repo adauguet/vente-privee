@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		4C2F2BDC0CC30DEBA063AC39 /* Pods_VentePrivee.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7A64E58EFCC51252BAAF98BE /* Pods_VentePrivee.framework */; };
-		541C2DE41DD24248006AD710 /* Target.swift in Sources */ = {isa = PBXBuildFile; fileRef = 541C2DE31DD24248006AD710 /* Target.swift */; };
 		54EA842F1DD0EC3B005A0EDD /* Resource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54EA842E1DD0EC3B005A0EDD /* Resource.swift */; };
 		71295B631DCBA56100E7D54C /* Universe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71295B621DCBA56100E7D54C /* Universe.swift */; };
 		713752FD1DCC959A00396047 /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = 713752FC1DCC959A00396047 /* Product.swift */; };
@@ -24,7 +23,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		541C2DE31DD24248006AD710 /* Target.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Target.swift; sourceTree = "<group>"; };
 		54EA842E1DD0EC3B005A0EDD /* Resource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Resource.swift; sourceTree = "<group>"; };
 		58104E69A29C5EB8A51253DC /* Pods-VentePrivee.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VentePrivee.release.xcconfig"; path = "Pods/Target Support Files/Pods-VentePrivee/Pods-VentePrivee.release.xcconfig"; sourceTree = "<group>"; };
 		71295B621DCBA56100E7D54C /* Universe.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Universe.swift; sourceTree = "<group>"; };
@@ -71,7 +69,6 @@
 				71295B621DCBA56100E7D54C /* Universe.swift */,
 				713752FE1DCC95AD00396047 /* Family.swift */,
 				713752FC1DCC959A00396047 /* Product.swift */,
-				541C2DE31DD24248006AD710 /* Target.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -264,7 +261,6 @@
 				71295B631DCBA56100E7D54C /* Universe.swift in Sources */,
 				713752FF1DCC95AD00396047 /* Family.swift in Sources */,
 				71DEA1A01DC781A70086F00E /* ViewController.swift in Sources */,
-				541C2DE41DD24248006AD710 /* Target.swift in Sources */,
 				71CD90CA1DC7824800E4B9CA /* Router.swift in Sources */,
 				71DEA19E1DC781A70086F00E /* AppDelegate.swift in Sources */,
 				71E23E211DC947A700B38674 /* WebService.swift in Sources */,

@@ -16,26 +16,26 @@ final class WebService {
     static let shared = WebService()
     private init() {}
     
-    func send(route: URLRequestConvertible, completion: @escaping () -> ()) {
+    func send(route: URLRequestConvertible, completion: @escaping () -> (), failure: @escaping (Error) -> ()) {
         Alamofire.request(route).validate().responseData { response in
             switch response.result {
             case .success:
                 completion()
             case .failure(let error):
-                print(error)
+                failure(error)
             }
         }
     }
         
-    func load<A>(resource: Resource<A>, completion: @escaping (A?) -> ()) {
+    func load<A>(resource: Resource<A>, completion: @escaping (A?) -> (), failure: @escaping (Error) -> ()) {
         Alamofire.request(resource.url).validate().responseJSON { response in
             switch response.result {
             case .success(let value as JSON):
                 completion(resource.parse(value))
             case .failure(let error):
-                print(error)
+                failure(error)
             default:
-                print(response)
+                print(response) // This should never happen
             }
         }
     }
